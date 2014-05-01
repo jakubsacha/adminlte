@@ -1,6 +1,8 @@
 {
     "name": "jakubsacha/adminlte",
-    "description": "",
+    "description": "AdminLTE theme integration into Syntara & Laravel4",
+    "keywords": ["laravel","AdminLTE","theme", "admin"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Jakub Sacha",
