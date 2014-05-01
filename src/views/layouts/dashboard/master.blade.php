@@ -32,19 +32,23 @@
         @if (!empty($favicon))
         <link rel="icon" {{ !empty($faviconType) ? 'type="$faviconType"' : '' }} href="{{ $favicon }}" />
         @endif
-    </head>
-    <body class="skin-blue fixed">
-        @include(Config::get('syntara::views.header'))
-        
-        <div class="wrapper row-offcanvas row-offcanvas-left">
-            @include(Config::get('adminlte::views.left'))
-            
-            @include(Config::get('adminlte::views.content'))
-            
-        </div>
 
         <!-- jQuery 2.0.2 -->
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js") }}"></script>
+        
+        <script src="{{ asset('packages/mrjuliuss/syntara/assets/js/dashboard/base.js') }}"></script>
+
+    </head>
+    <body class="skin-blue fixed">
+        @include(Config::get('syntara::views.header'))
+
+        <div class="wrapper row-offcanvas row-offcanvas-left">
+            @include(Config::get('adminlte::views.left'))
+
+            @include(Config::get('adminlte::views.content'))
+
+        </div>
+
         <!-- jQuery UI 1.10.3 -->
         <script src="{{ asset("packages/jakubsacha/adminlte/AdminLTE/js/jquery-ui-1.10.3.min.js") }}" type="text/javascript"></script>
         <!-- Bootstrap -->
