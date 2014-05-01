@@ -33,7 +33,7 @@
         <link rel="icon" {{ !empty($faviconType) ? 'type="$faviconType"' : '' }} href="{{ $favicon }}" />
         @endif
     </head>
-    <body class="skin-blue">
+    <body class="skin-blue fixed">
         @include(Config::get('syntara::views.header'))
         
         <div class="wrapper row-offcanvas row-offcanvas-left">

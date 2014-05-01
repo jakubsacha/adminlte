@@ -16,7 +16,8 @@
     },
     "autoload": {
         "classmap": [
-            "src/migrations"
+            "src/migrations",
+            "src/helpers"
         ],
         "psr-0": {
             "Jakubsacha\\Adminlte\\": "src/"
