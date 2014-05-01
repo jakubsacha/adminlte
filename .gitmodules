@@ -1,0 +1,3 @@
+[submodule "public/AdminLTE"]
+	path = public/AdminLTE
+	url = https://github.com/almasaeed2010/AdminLTE
