@@ -6,11 +6,8 @@
 <div class="row">
     <div class="col-lg-8">
         <div class="box box-primary">
-            <div class="box-header">
-                <h3 class="box-title">{{ $user->getId() }} - {{ $user->username }}</h3>
-            </div>
             <div class="box-body clearfix">
-                <form class="form-horizontal" id="edit-user-form" method="PUT">
+                <form class="form" id="edit-user-form" method="PUT">
                     <div class="row-fluid">
                         <div class="col-lg-6">
                             <div class="form-group">
@@ -39,7 +36,6 @@
                                 <label class="control-label">{{ trans('syntara::users.groups') }}</label>
                             </div>
                             <div class="form-group">
-
                                 @foreach($groups as $group)
                                 <label class="checkbox-inline">
                                     @if($currentUser->hasAccess('user-group-management'))
@@ -49,31 +45,29 @@
                                 </label>
                                 @endforeach
                             </div>
-                        </div>
-                        <div class="col-lg-5">
-                            @if($currentUser->hasAccess('permissions-management'))
-                            @include('syntara::layouts.dashboard.permissions-select', array('permissions'=> $permissions))
-                            @endif
-                        </div>
-                        @if($user->getId() !== $currentUser->getId())
-                        <div class="col-lg-2">
-                            <label>{{ trans('syntara::users.banned') }}</label>
-                            <div class="switch-toggle well">
+
+                            <div class="form-group">
+                                @if($currentUser->hasAccess('permissions-management'))
+                                @include('syntara::layouts.dashboard.permissions-select', array('permissions'=> $permissions))
+                                @endif
+                            </div>
+                            @if($user->getId() !== $currentUser->getId())
+                            <div class="form-group">
+                                <label class="control-label">{{ trans('syntara::users.banned') }}</label>
                                 <input id="no" name="banned" type="radio" value="no" {{ ($throttle->isBanned() === false) ? 'checked' : '' }}>
                                 <label for="no" onclick="">{{ trans('syntara::all.no') }}</label>
 
                                 <input id="yes" name="banned" type="radio" value="yes" {{ ($throttle->isBanned() === true) ? 'checked' : '' }}>
                                 <label for="yes" onclick="">{{ trans('syntara::all.yes') }}</label>
 
-                                <a class="btn btn-primary"></a>
                             </div>
+                            @endif
                         </div>
-                        @endif
                     </div>
                     <div class="row-fluid">
                         <div class="col-lg-12">
                             <br>
-                            <div class="form-group">
+                            <div class="pull-right">
                                 <button id="update-user" class="btn btn-primary">{{ trans('syntara::all.update') }}</button>
                             </div>
                         </div>

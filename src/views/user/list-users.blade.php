@@ -26,7 +26,7 @@
             <th class="col-lg-2 visible-lg visible-xs">{{ trans('syntara::all.email') }}</th>
             <th class="col-lg-2 hidden-xs">{{ trans('syntara::users.groups') }}</th>
             <th class="col-lg-2 hidden-xs">{{ trans('syntara::users.permissions') }}</th>
-            <th class="col-lg-1 visible-lg">{{ trans('syntara::users.name') }}</th>
+            <th class="col-lg-1 visible-lg">{{ trans('syntara::all.name') }}</th>
             <th class="col-lg-1 hidden-xs">{{ trans('syntara::users.activated') }}</th>
             @if($currentUser->hasAccess('update-user-info'))
             <th class="col-lg-1 hidden-xs">{{ trans('syntara::users.banned') }}</th>

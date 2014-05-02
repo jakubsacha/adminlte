@@ -21,6 +21,9 @@
         <link href="{{ asset("packages/jakubsacha/adminlte/AdminLTE/css/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css") }}" rel="stylesheet" type="text/css" />
         <!-- Theme style -->
         <link href="{{ asset("packages/jakubsacha/adminlte/AdminLTE/css/AdminLTE.css") }}" rel="stylesheet" type="text/css" />
+        
+        <!-- jakubsacha css fix -->
+        <link href="{{ asset("packages/jakubsacha/adminlte/css/AdminLTE.css") }}" rel="stylesheet" type="text/css" />
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -74,6 +77,7 @@
 
         <!-- AdminLTE App -->
         <script src="{{ asset("packages/jakubsacha/adminlte/AdminLTE/js/AdminLTE/app.js") }}" type="text/javascript"></script>
+        <script src="{{ asset("packages/jakubsacha/adminlte/js/app.js") }}" type="text/javascript"></script>
 
     </body>
 </html>
