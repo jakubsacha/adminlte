@@ -1,5 +1,6 @@
 ## About
-This is integration of AdminLTE (https://github.com/almasaeed2010/AdminLTE) into Laravel4 and Syntara packages.
+
+http://www.zimagez.com/zimage/przechwycenieobrazuekranu-03052014-224612.php
 
 Here you can see AdminLTE theme preview: http://almsaeedstudio.com/preview/
 
