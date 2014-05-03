@@ -3,7 +3,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            <i class="fa {{end($breadcrumb)['icon']}}"></i>
+            <? $icon = end($breadcrumb)['icon']; ?>
+            <i class="<?php echo (strpos($icon,'fa-')!==false)?'fa':'glyphicon '; ?> {{$icon}}"></i>
             {{end($breadcrumb)['title']}}
         </h1>
         {{ isset($breadcrumb) ? \Jakubsacha\Adminlte\Helpers\Breadcrumbs::create($breadcrumb) : ''; }}

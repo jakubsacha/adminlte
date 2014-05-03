@@ -4,3 +4,7 @@
 .box-header .box-tools a {
     color: #ffffff;
 }
+
+#delete-item{
+    display: none;
+}

@@ -4,7 +4,7 @@
 <script src="{{ asset('packages/mrjuliuss/syntara/assets/js/dashboard/user.js') }}"></script>
 <div class="row">
     <div class="col-lg-12">
-        <div class="box">
+        <div class="box box-primary">
             <div class="box-header">
                 <h1 class="box-title">{{ trans('syntara::users.new') }}</h1>
             </div>

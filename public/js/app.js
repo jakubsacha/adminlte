@@ -6,3 +6,8 @@ $(document).ajaxComplete(function() {
         radioClass: 'iradio_minimal'
     });
 });
+
+$('input').on('ifChanged', function(event){
+    $(this).trigger('change');
+    $('input').iCheck('update');  
+});

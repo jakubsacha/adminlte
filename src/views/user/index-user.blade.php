@@ -43,7 +43,6 @@
             <div class="box-header">
                 <h3 class="box-title">{{ trans('syntara::users.all') }}</h3>
                 <div class="box-tools">
-                    {{ $datas['users']->links(); }}
                     <p class="pull-right">
                         @if($currentUser->hasAccess('delete-user'))
                         <a id="delete-item" class="btn btn-danger btn-sm">{{ trans('syntara::all.delete') }}</a>

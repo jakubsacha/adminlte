@@ -21,15 +21,15 @@ return array(
     'user-activation' => 'syntara::user.activation',
 
     // groups
-    'groups-index' => 'syntara::group.index-group',
-    'groups-list' => 'syntara::group.list-groups',
-    'group-create' => 'syntara::group.new-group',
-    'users-in-group' => 'syntara::group.list-users-group',
-    'group-edit' => 'syntara::group.show-group',
+    'groups-index' => 'adminlte::group.index-group',
+    'groups-list' => 'adminlte::group.list-groups',
+    'group-create' => 'adminlte::group.new-group',
+    'users-in-group' => 'adminlte::group.list-users-group',
+    'group-edit' => 'adminlte::group.show-group',
 
     // permissions
-    'permissions-index' => 'syntara::permission.index-permission',
-    'permissions-list' => 'syntara::permission.list-permissions',
+    'permissions-index' => 'adminlte::permission.index-permission',
+    'permissions-list' => 'adminlte::permission.list-permissions',
     'permission-create' => 'syntara::permission.new-permission',
     'permission-edit' => 'syntara::permission.show-permission',
 );

@@ -1,9 +1,3 @@
-
-@if (!count($datas['users']))
-<p class="alert alert-warning">
-    No records found!
-</p>
-@else
 <table class="table">
     <thead>
         <tr>
@@ -20,12 +14,16 @@
             @if($currentUser->hasAccess('update-user-info'))
             <th class="col-lg-1 hidden-xs">{{ trans('syntara::users.banned') }}</th>
 
-            <th class="col-lg-1" style="text-align: center;">{{ trans('syntara::all.show') }}</th>
+            <th class="col-lg-1" style="text-align: center;">&nbsp;</th>
             @endif
         </tr>
     </thead>
     <tbody>
-
+        @if (!count($datas['users']))
+        <tr><td colspan="10">
+            No records found!
+            </td></tr>
+        @endif
         @foreach ($datas['users'] as $user)
         <?php
         $throttle = $throttle = Sentry::findThrottlerByUserId($user->getId());
@@ -55,4 +53,7 @@
         @endforeach
     </tbody>
 </table>
-@endif
+
+<div class="box-footer">
+    {{ $datas['users']->links(); }}
+</div>

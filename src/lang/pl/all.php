@@ -1,5 +1,6 @@
 <?php
 
 return array(
-    'dashboard' => 'Pulpit'
+    'none' => 'Brak',
+    
 );
