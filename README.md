@@ -5,22 +5,22 @@ Here you can see AdminLTE theme preview: http://almsaeedstudio.com/preview/
 
 ### Installation
 
-#Install new Laravel4 project using composer:
+###### Install new Laravel4 project using composer:
 ```
 composer create-project laravel/laravel project_name --prefer-dist
 ```
-#update your composer.json require file with:
+###### Update your composer.json require file with:
 
 ```
 "jakubsacha/adminlte": "dev-master"
 ```
 
-# Hit `composer update`
+######  Hit `composer update`
 
-#Configure your database
+###### Configure your database
 In app/config/database.php
 
-# Add ServiceProviders
+###### Add ServiceProviders
 You have to add
 ```
 'Cartalyst\Sentry\SentryServiceProvider',
@@ -34,18 +34,17 @@ into app/config/app.php service providers array and
 ```
 into aliases (on the bottom)
 
-#install syntara
+###### Install Syntara
 ```
 php artisan syntara:install
 php artisan create:user user email password Admin
 ```
-#publish assets
+###### Publish assets
 ```
 php artisan asset:publish
 ```
 
-#done!
-
+###### Done!
 
 
 
