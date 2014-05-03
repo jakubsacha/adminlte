@@ -21,6 +21,7 @@ class AdminlteServiceProvider extends ServiceProvider {
     public function boot() {
         $this->package('jakubsacha/adminlte');
 
+        app('config')->set('syntara::views', require(__DIR__ . '/../../config/views.php'));
         // register helpers
         $this->registerHelpers();
     }
@@ -30,8 +31,6 @@ class AdminlteServiceProvider extends ServiceProvider {
         $this->app['breadcrumbs'] = $this->app->share(function() {
             return new \Jakubsacha\Adminlte\Helpers\Breadcrumbs();
         });
-
- 
     }
 
     /**
