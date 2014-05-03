@@ -21,6 +21,7 @@
                     <i class="fa fa-dashboard"></i> <span>{{trans("syntara::breadcrumbs.dashboard")}}</span>
                 </a>
             </li>
+            {{ (!empty($navPages)) ? $navPages : '' }}
             @if (Sentry::check())
                 @if($currentUser->hasAccess('view-users-list') || $currentUser->hasAccess('groups-management'))
                 <li class="treeview" >
@@ -42,7 +43,7 @@
                     </ul>
                 </li>
                 @endif
-                {{ (!empty($navPages)) ? $navPages : '' }}
+                {{ (!empty($navPagesRight)) ? $navPagesRight : '' }}
             @endif
         </ul>
     </section>

@@ -30,6 +30,6 @@ return array(
     // permissions
     'permissions-index' => 'adminlte::permission.index-permission',
     'permissions-list' => 'adminlte::permission.list-permissions',
-    'permission-create' => 'syntara::permission.new-permission',
-    'permission-edit' => 'syntara::permission.show-permission',
+    'permission-create' => 'adminlte::permission.new-permission',
+    'permission-edit' => 'adminlte::permission.show-permission',
 );
