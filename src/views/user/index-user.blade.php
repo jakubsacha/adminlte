@@ -42,8 +42,20 @@
         <div class="box">
             <div class="box-header">
                 <h3 class="box-title">{{ trans('syntara::users.all') }}</h3>
+                <div class="box-tools">
+                    {{ $datas['users']->links(); }}
+                    <p class="pull-right">
+                        @if($currentUser->hasAccess('delete-user'))
+                        <a id="delete-item" class="btn btn-danger btn-sm">{{ trans('syntara::all.delete') }}</a>
+                        @endif
+
+                        @if($currentUser->hasAccess('create-user'))
+                        <a class="btn btn-info btn-new btn-sm" href="{{ URL::route('newUser') }}">{{ trans('syntara::users.new') }}</a>
+                        @endif
+                    </p>
+                </div>
             </div>
-            <div class="box-body  ajax-content">
+            <div class="box-body  ajax-content no-padding">
                 @include('adminlte::user.list-users')
             </div>
         </div>

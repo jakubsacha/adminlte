@@ -1,27 +1,16 @@
-<div class="pull-right">
-    {{ $datas['users']->links(); }}
-    <p>
-        @if($currentUser->hasAccess('delete-user'))
-        <a id="delete-item" class="btn btn-danger">{{ trans('syntara::all.delete') }}</a>
-        @endif
 
-        @if($currentUser->hasAccess('create-user'))
-        <a class="btn btn-info btn-new" href="{{ URL::route('newUser') }}">{{ trans('syntara::users.new') }}</a>
-        @endif
-    </p>
-</div>
 @if (!count($datas['users']))
 <p class="alert alert-warning">
     No records found!
 </p>
 @else
-<table class="table table-bordered ">
+<table class="table">
     <thead>
         <tr>
             @if($currentUser->hasAccess('delete-user'))
             <th class="col-lg-1" style="text-align: center;"><input type="checkbox" class="check-all"></th>
             @endif
-            <th class="col-lg-1 hidden-xs" style="text-align: center;">Id</th>
+            <th class="col-lg-1 hidden-xs" style="text-align: center;">#</th>
             <th class="col-lg-1">{{ trans('syntara::users.username') }}</th>
             <th class="col-lg-2 visible-lg visible-xs">{{ trans('syntara::all.email') }}</th>
             <th class="col-lg-2 hidden-xs">{{ trans('syntara::users.groups') }}</th>
