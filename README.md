@@ -5,24 +5,49 @@ Here you can see AdminLTE theme preview: http://almsaeedstudio.com/preview/
 
 ### Installation
 
-Install new Laravel4 project using composer:
+#Install new Laravel4 project using composer:
 ```
-composer create-project laravel/laravel --prefer-dist
+composer create-project laravel/laravel project_name --prefer-dist
 ```
-then update your composer.json require file with:
+#update your composer.json require file with:
 
 ```
 "jakubsacha/adminlte": "dev-master"
 ```
 
-and hit `composer update`
+# Hit `composer update`
 
-next step is doing typical synatra installation process:
+#Configure your database
+In app/config/database.php
 
-http://mrjuliuss.github.io/syntara/docs/installation.html
-
-add service provider in your app.php config file
-
+# Add ServiceProviders
+You have to add
 ```
+'Cartalyst\Sentry\SentryServiceProvider',
+'Mrjuliuss\Syntara\SyntaraServiceProvider',
 "Jakubsacha\Adminlte\AdminlteServiceProvider"
 ```
+
+into app/config/app.php service providers array and
+```
+'Sentry' => 'Cartalyst\Sentry\Facades\Laravel\Sentry'
+```
+into aliases (on the bottom)
+
+#install syntara
+```
+php artisan syntara:install
+php artisan create:user user email password Admin
+```
+#publish assets
+```
+php artisan asset:publish
+```
+
+#done!
+
+
+
+
+
+                
