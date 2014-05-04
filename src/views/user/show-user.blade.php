@@ -37,7 +37,7 @@
                             </div>
                             <div class="form-group">
                                 @foreach($groups as $group)
-                                <label class="checkbox-inline">
+                                <label class="checkbox">
                                     @if($currentUser->hasAccess('user-group-management'))
                                     <input type="checkbox" id="groups[{{ $group->getId() }}]" name="groups[]" value="{{ $group->getId() }}" {{ ($user->inGroup($group)) ? 'checked="checked"' : ''}}>
                                     @endif

@@ -38,7 +38,7 @@
                             <label class="control-label">{{ trans('syntara::users.groups') }}</label>
                             <div class="form-group">
                                 @foreach($groups as $group)
-                                <label class="checkbox-inline">
+                                <label class="checkbox">
                                     <input type="checkbox" id="groups[{{ $group->getId() }}]" name="groups[]" value="{{ $group->getId() }}"> {{ $group->getName() }}
                                 </label>
                                 @endforeach
