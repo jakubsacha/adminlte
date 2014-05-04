@@ -20,7 +20,8 @@ class AdminlteServiceProvider extends ServiceProvider {
      */
     public function boot() {
         $this->package('jakubsacha/adminlte');
-        app('config')->set('syntara::views', require(__DIR__ . '/../../config/views.php'));
+	// override configs
+        app('config')->set('syntara::views', app('config')->get('adminlte::views'));
         // register helpers
         $this->registerHelpers();
     }
