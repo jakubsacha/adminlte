@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table table-hover">
     <thead>
         <tr>
             @if($currentUser->hasAccess('delete-user'))
@@ -13,8 +13,6 @@
             <th class="col-lg-1 hidden-xs">{{ trans('syntara::users.activated') }}</th>
             @if($currentUser->hasAccess('update-user-info'))
             <th class="col-lg-1 hidden-xs">{{ trans('syntara::users.banned') }}</th>
-
-            <th class="col-lg-1" style="text-align: center;">&nbsp;</th>
             @endif
         </tr>
     </thead>
@@ -28,7 +26,7 @@
         <?php
         $throttle = $throttle = Sentry::findThrottlerByUserId($user->getId());
         ?>
-        <tr>
+        <tr onclick="document.location='{{ URL::route('showUser', $user->getId()) }}';">
             @if($currentUser->hasAccess('delete-user'))
             <td style="text-align: center;">
                 <input type="checkbox" data-user-id="{{ $user->getId(); }}">
@@ -47,7 +45,6 @@
             <td class="hidden-xs">{{ $user->isActivated() ? trans('syntara::all.yes') : '<a class="activate-user" href="#" data-toggle="tooltip" title="'.trans('syntara::users.activate').'">'.trans('syntara::all.no').'</a>'}}</td>
             @if($currentUser->hasAccess('update-user-info'))
             <td class="hidden-xs">{{ $throttle->isBanned() ? trans('syntara::all.yes') : trans('syntara::all.no')}}</td>        
-            <td style="text-align: center;">&nbsp;<a href="{{ URL::route('showUser', $user->getId()) }}">{{ trans('syntara::all.show') }}</a></td>
             @endif
         </tr>
         @endforeach

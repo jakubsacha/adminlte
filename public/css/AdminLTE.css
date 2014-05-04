@@ -8,3 +8,7 @@
 #delete-item{
     display: none;
 }
+
+table.table-hover tbody tr{
+    cursor: pointer;
+}

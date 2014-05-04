@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table table-hover">
     <thead>
         <tr>
             @if($currentUser->hasAccess('user-group-management'))
@@ -6,7 +6,6 @@
             @endif
             <th style="width:20px; text-align: center;">ID</th>
             <th style="width:200px;">{{ trans('syntara::users.username') }}</th>
-            <th style="width:30px; text-align: center;">{{ trans('syntara::all.show') }}</th>
         </tr>
     </thead>
     <tbody>
@@ -14,7 +13,7 @@
         <tr><td colspan="5">{{trans("adminlte::all.none")}}</td></tr>
         @endif
         @foreach ($users as $user)
-        <tr>
+        <tr onclick="location.href='{{ URL::route('showUser', $user->getId()); }}';">
             @if($currentUser->hasAccess('user-group-management'))
             <td style="text-align: center;">
                 <input type="checkbox" data-user-id="{{ $user->getId() }}">
@@ -22,11 +21,10 @@
             @endif
             <td style="text-align: center;">{{ $user->getId() }}</td>
             <td>&nbsp;{{ $user->username }}</td>
-            <td style="text-align: center;">&nbsp;<a href="{{ URL::route('showUser', $user->getId()); }}">{{ trans('syntara::all.show') }}</a></td>
         </tr>
         @endforeach
     </tbody>
-    <tfoot><tr><td colspan="5"></td></tr></tfoot>
+    <tfoot><tr><td colspan="5">{{ $users->links() }}</td></tr></tfoot>
 </table>
 
 @if(!empty($candidateUsers) && $currentUser->hasAccess('user-group-management'))

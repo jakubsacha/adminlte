@@ -39,12 +39,10 @@
             <div class="box-header">
                 <h3 class="box-title">{{ trans('syntara::groups.groups-users-title') }}</h3>
                 <div class="box-tools">
-                    {{ $users->links() }}
                     <div class="pull-right">
                         <a id="delete-item" class="btn btn-danger users">{{ trans('syntara::all.delete') }}</a>
                     </div>
                 </div>
-
             </div>
             <div class="box-body ajax-content no-padding clearfix">
                 @include('adminlte::group.list-users-group')
