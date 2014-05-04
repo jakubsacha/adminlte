@@ -1,7 +1,5 @@
 ## About
 
-http://www.zimagez.com/zimage/przechwycenieobrazuekranu-03052014-224612.php
-
 Here you can see AdminLTE theme preview: http://almsaeedstudio.com/preview/
 
 ### Installation
