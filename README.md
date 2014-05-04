@@ -6,12 +6,17 @@ Here you can see AdminLTE theme preview: http://almsaeedstudio.com/preview/
 
 ###### Install new Laravel4 project using composer:
 ```
-composer create-project laravel/laravel project_name --prefer-dist
+composer create-project laravel/laravel project_name 
 ```
 ###### Update your composer.json require file with:
 
 ```
 "jakubsacha/adminlte": "dev-master"
+```
+
+and change minimum stability from stable to:
+```
+"minimum-stability": "dev"
 ```
 
 ######  Hit `composer update`
