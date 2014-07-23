@@ -1,6 +1,6 @@
 {
     "name": "jakubsacha/adminlte",
-    "description": "Syntara Admin panel (its based on Laravel 4) in nice theme. Package contains also small additional bugfixes and UI improvements od Syntara.",
+    "description": "Syntara Admin panel (its based on Laravel 4) in nice theme. Package contains also small additional bugfixes and UI improvements of Syntara.",
     "keywords": ["laravel","AdminLTE","theme","admin","cms","panel","administration"],
     "license": "MIT",
     "authors": [
