@@ -1,6 +1,6 @@
 <header class="header">
     <a href="{{ URL::route('indexDashboard') }}" class="logo">
-        {{$siteName}}
+        {{ (!empty($siteName)) ? $siteName : "AdminLTE"}}
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
