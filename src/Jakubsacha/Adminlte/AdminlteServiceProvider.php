@@ -1,6 +1,4 @@
-<?php
-
-namespace Jakubsacha\Adminlte;
+<?php namespace Jakubsacha\Adminlte;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -20,16 +18,18 @@ class AdminlteServiceProvider extends ServiceProvider {
      */
     public function boot() {
         $this->package('jakubsacha/adminlte');
-	// override configs
+
+        // Override Syntara Config.
         app('config')->set('syntara::views', app('config')->get('adminlte::views'));
-        // register helpers
+
+        // Register Helpers.
         $this->registerHelpers();
     }
 
     public function registerHelpers() {
-        // register breadcrumbs
+        // Register Breadcrumbs Helper.
         $this->app['breadcrumbs'] = $this->app->share(function() {
-            return new \Jakubsacha\Adminlte\Helpers\Breadcrumbs();
+            return new Helpers\Breadcrumbs();
         });
     }
 
