@@ -43,7 +43,7 @@ class AdminlteServiceProvider extends ServiceProvider {
 
         $this->app['Gravatar'] = $this->app->share(function() {
             
-            return new Whmcs();
+            return new Thomaswelton\LaravelGravatar\Gravatar();
 
         });
 
