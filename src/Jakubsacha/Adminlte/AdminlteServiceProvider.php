@@ -40,6 +40,20 @@ class AdminlteServiceProvider extends ServiceProvider {
      */
     public function register() {
         //
+
+        $this->app['Gravatar'] = $this->app->share(function() {
+            
+            return new Whmcs();
+
+        });
+
+        $this->app->booting(function() {
+          
+          $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+
+          $loader->alias('Gravatar', 'Thomaswelton\LaravelGravatar\Facades\Gravatar');
+
+        });
     }
 
     /**
