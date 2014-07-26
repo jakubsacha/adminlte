@@ -45,10 +45,17 @@ class AdminlteServiceProvider extends ServiceProvider {
         $this->app->register('Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider');
 
         /*
-         * Create alias for the dependency.
+         * Create alias for the dependency if its not already created.
          */
-        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-        $loader->alias('Gravatar', '\Thomaswelton\LaravelGravatar\Facades\Gravatar');
+        $this->app->booting(function(){
+            $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+            $aliases = \Config::get('app.aliases');
+
+            // Alias the Gravatar package
+            if (empty($aliases['Gravatar'])) {
+                $loader->alias('Gravatar', 'Thomaswelton\LaravelGravatar\Facades\Gravatar');
+            }
+        });
     }
 
     /**
