@@ -39,21 +39,16 @@ class AdminlteServiceProvider extends ServiceProvider {
      * @return void
      */
     public function register() {
-        //
+        /*
+         * Register the service provider for the dependency.
+         */
+        $this->app->register('Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider');
 
-        $this->app['gravatar'] = $this->app->share(function() {
-            
-            return new \Thomaswelton\LaravelGravatar\Gravatar();
-
-        });
-
-        $this->app->booting(function() {
-          
-          $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-
-          $loader->alias('Gravatar', '\Thomaswelton\LaravelGravatar\Facades\Gravatar');
-
-        });
+        /*
+         * Create alias for the dependency.
+         */
+        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+        $loader->alias('Gravatar', '\Thomaswelton\LaravelGravatar\Facades\Gravatar');
     }
 
     /**
