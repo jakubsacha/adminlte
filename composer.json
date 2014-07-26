@@ -12,7 +12,8 @@
     "require": {
         "php": ">=5.3.0",
         "illuminate/support": "4.2.*",
-	"mrjuliuss/syntara": "1.2.*"
+	"mrjuliuss/syntara": "1.2.*",
+        "thomaswelton/laravel-gravatar": "~0.0"
     },
     "autoload": {
         "classmap": [

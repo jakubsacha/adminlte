@@ -24,7 +24,7 @@
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
-                            <img src="{{asset("packages/jakubsacha/adminlte/AdminLTE/img/avatar3.png")}}" class="img-circle" alt="User Image" />
+                            <img src="{{Gravatar::src(Sentry::getUser()->email, 215)}}" class="img-circle" alt="User Image" />
                             <p>
                                 {{ Sentry::getUser()->username }}
                                 <small>Member since {{ Sentry::getUser()->created_at }}</small>
