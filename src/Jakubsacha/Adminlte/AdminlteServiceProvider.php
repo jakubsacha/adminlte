@@ -43,7 +43,7 @@ class AdminlteServiceProvider extends ServiceProvider {
 
         $this->app['gravatar'] = $this->app->share(function() {
             
-            return new Thomaswelton\LaravelGravatar\Gravatar();
+            return new \Thomaswelton\LaravelGravatar\Gravatar();
 
         });
 
@@ -51,7 +51,7 @@ class AdminlteServiceProvider extends ServiceProvider {
           
           $loader = \Illuminate\Foundation\AliasLoader::getInstance();
 
-          $loader->alias('Gravatar', 'Thomaswelton\LaravelGravatar\Facades\Gravatar');
+          $loader->alias('Gravatar', '\Thomaswelton\LaravelGravatar\Facades\Gravatar');
 
         });
     }
