@@ -41,7 +41,7 @@ class AdminlteServiceProvider extends ServiceProvider {
     public function register() {
         //
 
-        $this->app['Gravatar'] = $this->app->share(function() {
+        $this->app['gravatar'] = $this->app->share(function() {
             
             return new Thomaswelton\LaravelGravatar\Gravatar();
 
