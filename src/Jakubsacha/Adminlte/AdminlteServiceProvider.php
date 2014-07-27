@@ -1,6 +1,4 @@
-<?php
-
-namespace Jakubsacha\Adminlte;
+<?php namespace Jakubsacha\Adminlte;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -20,16 +18,18 @@ class AdminlteServiceProvider extends ServiceProvider {
      */
     public function boot() {
         $this->package('jakubsacha/adminlte');
-	// override configs
+
+        // Override Syntara Config.
         app('config')->set('syntara::views', app('config')->get('adminlte::views'));
-        // register helpers
+
+        // Register Helpers.
         $this->registerHelpers();
     }
 
     public function registerHelpers() {
-        // register breadcrumbs
+        // Register Breadcrumbs Helper.
         $this->app['breadcrumbs'] = $this->app->share(function() {
-            return new \Jakubsacha\Adminlte\Helpers\Breadcrumbs();
+            return new Helpers\Breadcrumbs();
         });
     }
 
@@ -39,20 +39,22 @@ class AdminlteServiceProvider extends ServiceProvider {
      * @return void
      */
     public function register() {
-        //
+        /*
+         * Register the service provider for the dependency.
+         */
+        $this->app->register('Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider');
 
-        $this->app['gravatar'] = $this->app->share(function() {
-            
-            return new \Thomaswelton\LaravelGravatar\Gravatar();
+        /*
+         * Create alias for the dependency if its not already created.
+         */
+        $this->app->booting(function(){
+            $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+            $aliases = \Config::get('app.aliases');
 
-        });
-
-        $this->app->booting(function() {
-          
-          $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-
-          $loader->alias('Gravatar', '\Thomaswelton\LaravelGravatar\Facades\Gravatar');
-
+            // Alias the Gravatar package
+            if (empty($aliases['Gravatar'])) {
+                $loader->alias('Gravatar', 'Thomaswelton\LaravelGravatar\Facades\Gravatar');
+            }
         });
     }
 
