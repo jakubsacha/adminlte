@@ -30,6 +30,7 @@ You have to add
 'Cartalyst\Sentry\SentryServiceProvider',
 'Mrjuliuss\Syntara\SyntaraServiceProvider',
 "Jakubsacha\Adminlte\AdminlteServiceProvider"
+"Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider"
 ```
 
 into app/config/app.php service providers array and
