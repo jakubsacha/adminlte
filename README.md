@@ -50,7 +50,8 @@ php artisan asset:publish
 
 ###### Done!
 
-
+###### LICENCE
+MIT
 
 
                 
