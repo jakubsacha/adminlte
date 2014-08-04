@@ -1,4 +1,4 @@
-## About
+### About
 
 Here you can see AdminLTE theme preview: http://almsaeedstudio.com/preview/
 
@@ -50,7 +50,7 @@ php artisan asset:publish
 
 ###### Done!
 
-###### LICENCE
+### LICENCE
 MIT
 
 
