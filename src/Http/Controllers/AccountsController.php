@@ -44,7 +44,7 @@ class AccountsController extends Controller
     {
         $oUser = $this->getUser($iUserId);
 
-        return \Redirect::back();
+        return view('adminlte::accounts.edit')->with('oUser', $oUser);
     }
 
     public function getDelete($iUserId)
