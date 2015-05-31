@@ -9,6 +9,8 @@ namespace jakubsacha\adminlte\Http\Controllers;
 
 use App\User;
 use Illuminate\Routing\Controller;
+use jakubsacha\adminlte\Repository\User\AccountsManagementRepository\GetDataCriteria;
+use jakubsacha\adminlte\Repository\User\AccountsManagementRepository;
 use Psy\Util\Json;
 
 class AccountsController extends Controller
@@ -18,37 +20,56 @@ class AccountsController extends Controller
         return view('adminlte::accounts.index');
     }
 
-    public function anyData()
+    public function anyData(AccountsManagementRepository $oAccountsManagementRepository)
     {
-        $oQuery = User::take(\Input::get('length'));
+        $oCriteria = new GetDataCriteria(
+            \Input::get('length'),
+            \Input::get('start'),
+            \Input::get('search.value')
+        );
 
-        if (\Input::get('search.value'))
-        {
-            $sLikeWhere = '%'.\Input::get('search.value').'%';
-            $oQuery
-                ->where('name', 'like', $sLikeWhere)
-                ->orWhere('email', 'like', $sLikeWhere);
-        }
-
-        $iFilteredCount = $oQuery->count();
-
-        if(\Input::get('start'))
-        {
-            $oQuery->skip(\Input::get('start'));
-        }
-        $aData = [];
-        foreach ($oQuery->get() as $oUser)
-        {
-            $aData[] = $oUser->toArray();
-        }
+        $oResult = $oAccountsManagementRepository->getData($oCriteria);
 
         return Json::encode(
             [
-                'recordsTotal' => User::count(),
-                'recordsFiltered' => $iFilteredCount,
-                'data' => $aData,
+                'recordsTotal' => $oResult->getRecordsTotal(),
+                'recordsFiltered' => $oResult->getRecordsFiltered(),
+                'data' => $oResult->getData(),
                 'draw' => (int)\Input::get('draw')
             ]
         );
+    }
+
+    public function getEdit($iUserId)
+    {
+        $oUser = $this->getUser($iUserId);
+
+        return \Redirect::back();
+    }
+
+    public function getDelete($iUserId)
+    {
+        $oUser = $this->getUser($iUserId);
+        $oUser->delete();
+
+        \Session::flash("message", 'Account has been removed');
+
+        return \Redirect::back();
+    }
+
+    /**
+     * @param $iUserId
+     * @return \App\User
+     */
+    private function getUser($iUserId)
+    {
+        $oUser = User::find($iUserId);
+
+        if (empty($oUser))
+        {
+            abort(404);
+        }
+
+        return $oUser;
     }
 }

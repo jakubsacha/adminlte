@@ -25,6 +25,7 @@
                             <th>Email</th>
                             <th>Created date</th>
                             <th>Last edit date</th>
+                            <th></th>
                         </tr>
                         </thead>
                     </table>
@@ -43,6 +44,7 @@
             $('#accounts').dataTable( {
                 "dataSrc": '',
                 "serverSide": true,
+                "stateSave": true,
                 "type": "POST",
                 "processing": true,
                 "ajax": '{{ action('\jakubsacha\adminlte\Http\Controllers\AccountsController@anyData') }}',
@@ -51,8 +53,19 @@
                     { "data": "name" },
                     { "data": "email" },
                     { "data": "created_at" },
-                    { "data": "updated_at" }
-                ]
+                    { "data": "updated_at" },
+                    { "width": "150px"}
+                ],
+                "columnDefs": [ {
+                    "targets": 5,
+                    "data": null,
+                    "render": function(data) {
+                        return '<div class="actions">' +
+                        '<a href="' + data.edit_url + '" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a> ' +
+                        '<a href="' + data.delete_url +'" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>' +
+                        '</div>';
+                    }
+                } ]
             } );
         } );
     </script>

@@ -38,7 +38,6 @@ class AdminlteServiceProvider extends ServiceProvider
             }
         );
 
-
         $this->commands(['command.adminlte.install']);
         $this->setUpRoutes($this->app->router);
     }

@@ -331,6 +331,11 @@
             </ol>
         </section>
         <section class="content">
+            @if (Session::has('message'))
+                <p class="alert alert-success">
+                    {{ Session::get('message') }}
+                </p>
+            @endif
             @yield('content')
         </section>
     </div>
