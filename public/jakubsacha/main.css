@@ -1,0 +1,9 @@
+#accounts_filter label
+{
+    float: right;
+}
+
+#accounts_filter label input
+{
+    margin-left: 1em;
+}

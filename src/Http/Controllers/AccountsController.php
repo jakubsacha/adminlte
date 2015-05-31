@@ -20,14 +20,23 @@ class AccountsController extends Controller
 
     public function anyData()
     {
-
         $oQuery = User::take(\Input::get('length'));
 
+        if (\Input::get('search.value'))
+        {
+            $sLikeWhere = '%'.\Input::get('search.value').'%';
+            $oQuery
+                ->where('name', 'like', $sLikeWhere)
+                ->orWhere('email', 'like', $sLikeWhere);
+        }
+
+        $iFilteredCount = $oQuery->count();
 
         if(\Input::get('start'))
         {
             $oQuery->skip(\Input::get('start'));
         }
+        $aData = [];
         foreach ($oQuery->get() as $oUser)
         {
             $aData[] = $oUser->toArray();
@@ -36,7 +45,7 @@ class AccountsController extends Controller
         return Json::encode(
             [
                 'recordsTotal' => User::count(),
-                'recordsFiltered' => User::count(),
+                'recordsFiltered' => $iFilteredCount,
                 'data' => $aData,
                 'draw' => (int)\Input::get('draw')
             ]
