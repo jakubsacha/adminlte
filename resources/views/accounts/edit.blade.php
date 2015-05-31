@@ -1,7 +1,7 @@
 @extends('adminlte::app')
 
 @section('title')
-    Edut account - Administration
+    Edit account - Administration
 @endsection
 
 @section('header')
