@@ -16,29 +16,8 @@
 @section('content')
     <div class="row">
         <div class="col-xs-6">
-            <div class="box box-primary">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Account</h3>
-                </div>
-                <form class="form-horizontal">
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="name" value="{{ $oUser->name }}" placeholder="Name">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-2 control-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="email" value="{{ $oUser->email }}" placeholder="Email">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-footer">
-                        <button type="submit" class="btn btn-info pull-right">Save</button>
-                    </div>
-                </form>
+            <div class="ajaxForm">
+                @include('adminlte::accounts.edit.account')
             </div>
         </div>
 
@@ -69,36 +48,9 @@
 
     <div class="row">
         <div class="col-xs-6">
-            <div class="box box-warning">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Reset password</h3>
-                </div>
-                <form class="form-horizontal">
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-3 control-label">New password</label>
-                            <div class="col-sm-9">
-                                <input type="password" class="form-control" id="password" placeholder="New password">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-3 control-label">Repeat</label>
-                            <div class="col-sm-9">
-                                <input type="password" class="form-control" id="password2" placeholder="Repeat">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-footer">
-                        <button type="submit" class="btn btn-warning pull-right">Save</button>
-                    </div>
-                </form>
+            <div class="ajaxForm">
+                @include('adminlte::accounts.edit.password')
             </div>
         </div>
     </div>
-@endsection
-
-@section('scripts')
-    <script type="text/javascript">
-
-    </script>
 @endsection

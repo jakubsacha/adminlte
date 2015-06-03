@@ -4,7 +4,7 @@
  * @since 31/05/15 17:53
  */
 
-namespace jakubsacha\adminlte\Repository\User\AccountsManagementRepository;
+namespace jakubsacha\adminlte\Repository\User\AccountsListRepository;
 
 class GetDataCriteria
 {

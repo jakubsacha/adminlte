@@ -526,6 +526,8 @@
 <script src="{{ asset('vendor/adminlte/adminlte/plugins/datatables/jquery.dataTables.min.js') }}" type="text/javascript"></script>
 <script src="{{ asset('vendor/adminlte/adminlte/plugins/datatables/dataTables.bootstrap.min.js') }}" type="text/javascript"></script>
 
+<script src="{{ asset('vendor/adminlte/jakubsacha/main.js') }}" type="text/javascript"></script>
+
 @yield('scripts')
 
 </body>

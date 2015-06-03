@@ -7,10 +7,10 @@
 namespace jakubsacha\adminlte\Repository\User;
 
 use App\User;
-use jakubsacha\adminlte\Repository\User\AccountsManagementRepository\GetDataCriteria;
-use jakubsacha\adminlte\Repository\User\AccountsManagementRepository\GetDataResult;
+use jakubsacha\adminlte\Repository\User\AccountsListRepository\GetDataCriteria;
+use jakubsacha\adminlte\Repository\User\AccountsListRepository\GetDataResult;
 
-class AccountsManagementRepository
+class AccountsListRepository
 {
     /**
      * @param GetDataCriteria $oCriteria
