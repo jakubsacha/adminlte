@@ -8,17 +8,14 @@ namespace jakubsacha\adminlte\Http\Controllers;
 
 
 use App\User;
-use Illuminate\Contracts\Support\MessageProvider;
 use Illuminate\Contracts\Validation\ValidationException;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use Illuminate\Http\Exception\HttpResponseException;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use jakubsacha\adminlte\Repository\User\AccountsEditRepository;
-use jakubsacha\adminlte\Repository\User\AccountsListRepository\GetDataCriteria;
 use jakubsacha\adminlte\Repository\User\AccountsListRepository;
+use jakubsacha\adminlte\Repository\User\AccountsListRepository\GetDataCriteria;
 use jakubsacha\adminlte\Repository\User\AccountsPasswordRepository;
 use Psy\Util\Json;
-use Illuminate\Http\Request;
 
 class AccountsController extends Controller
 {
