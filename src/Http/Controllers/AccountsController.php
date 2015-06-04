@@ -65,8 +65,9 @@ class AccountsController extends Controller
                 [
                     'name' => 'required|max:255',
                     'email' => 'required|unique:users,email,' . $iUserId . '|email',
-                ]);
-            if($oV->fails())
+                ]
+            );
+            if ($oV->fails())
             {
                 throw new ValidationException($oV);
             }
@@ -75,8 +76,7 @@ class AccountsController extends Controller
 
             $oView->with('success', true);
 
-        }
-        catch (ValidationException $e)
+        } catch (ValidationException $e)
         {
             $oUser->fill($oRequest->all());
             $oView->withErrors($e->getMessageProvider()->getMessageBag());
@@ -85,8 +85,11 @@ class AccountsController extends Controller
         return $oView;
     }
 
-    public function anyEditPassword($iUserId, AccountsPasswordRepository $oAccountsPasswordRepository, Request $oRequest)
-    {
+    public function anyEditPassword(
+        $iUserId,
+        AccountsPasswordRepository $oAccountsPasswordRepository,
+        Request $oRequest
+    ) {
         $oUser = $this->getUser($iUserId);
 
         $oView = view('adminlte::accounts.edit.password')->with('oUser', $oUser);
@@ -94,8 +97,9 @@ class AccountsController extends Controller
         {
             $oV = \Validator::make(
                 $oRequest->all(),
-                ['password' => 'required|confirmed|max:255|min:6']);
-            if($oV->fails())
+                ['password' => 'required|confirmed|max:255|min:6']
+            );
+            if ($oV->fails())
             {
                 throw new ValidationException($oV);
             }
@@ -104,8 +108,7 @@ class AccountsController extends Controller
 
             $oView->with('success', true);
 
-        }
-        catch (ValidationException $e)
+        } catch (ValidationException $e)
         {
             $oUser->fill($oRequest->all());
             $oView->withErrors($e->getMessageProvider()->getMessageBag());

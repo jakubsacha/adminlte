@@ -13,8 +13,10 @@ class AccountsEditRepository
 {
     public function editUser(User $oUser, $aInput)
     {
-        $oUser->fill($aInput);
+        $oUser->fill(array_intersect_key($aInput, array_flip(['name', 'email'])));
+//        $oUser->fill($aInput);
         $oUser->save();
+
         return $oUser;
     }
 }
