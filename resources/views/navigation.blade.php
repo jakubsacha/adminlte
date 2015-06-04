@@ -11,7 +11,7 @@
     </a>
     <ul class="treeview-menu">
         <li><a href="{{ action('\jakubsacha\adminlte\Http\Controllers\AccountsController@getIndex') }}"><i class="fa fa-user"></i> Accounts</a></li>
-        <li><a href="pages/charts/morris.html"><i class="fa fa-toggle-on"></i> Roles</a></li>
-        <li><a href="pages/charts/flot.html"><i class="fa fa-key"></i> Permissions</a></li>
+        <li><a href="{{ action('\jakubsacha\adminlte\Http\Controllers\RolesController@getIndex') }}"><i class="fa fa-toggle-on"></i> Roles</a></li>
+        <li><a href="{{ action('\jakubsacha\adminlte\Http\Controllers\PermissionsController@getIndex') }}"><i class="fa fa-key"></i> Permissions</a></li>
     </ul>
 </li>

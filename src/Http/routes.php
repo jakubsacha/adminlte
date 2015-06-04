@@ -13,6 +13,8 @@ Route::group(
     function ()
     {
         Route::controller('accounts', 'AccountsController');
+        Route::controller('roles', 'RolesController');
+        Route::controller('permissions', 'PermissionsController');
         Route::controller('', 'IndexController');
     }
 );
